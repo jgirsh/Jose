@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Baldallamos | Professional Handyman Rock Hill, SC</title>
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #d97706;
+            --accent-hover: #b45309;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --slate-gray: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            padding: 1.25rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        nav .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSHHi67Rxm01XGJq76m_8deeN_PBHjnMrX6dayeJ-BAl_arYxnPRU8LJkv-tt5rIo-dySUSOwW2XM1OXrI') no-repeat center center/cover;
+            color: var(--white);
+            padding: 10rem 2rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background-color: rgba(217, 119, 6, 0.2);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.85rem 2.25rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(217, 119, 6, 0.4);
+        }
+
+        /* Section Global Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* Services Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+
+        .service-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .service-info {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .service-info h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .service-info p {
+            color: var(--slate-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Service Area Banner */
+        .location-banner {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .location-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .location-container h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Form Styles */
+        .contact-wrap {
+            background-color: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--border);
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .contact-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .contact-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-header p {
+            color: #cbd5e1;
+        }
+
+        .contact-form {
+            padding: 3rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer strong {
+            color: var(--white);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul li {
+                margin: 0 1rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-bottom: 0;
+            }
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Jose <span>Baldallamos</span></div>
+        <ul>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#service-areas">Service Areas</a></li>
+            <li><a href="#contact">Get An Estimate</a></li>
+        </ul>
+    </nav>
+
+    <!-- Enhanced Homepage Hero -->
+    <header class="hero">
+        <div class="hero-badge">Professional Home Solutions</div>
+        <h1>Premium Deck Builds & Home Repairs Done Right</h1>
+        <p>Your trusted local specialist for reliable carpentry, structural structural porch rebuilding, and comprehensive home enhancements.</p>
+        <a href="#contact" class="btn">Schedule Free Estimate</a>
+    </header>
+
+    <!-- Expanded Services Layout -->
+    <section id="services" class="container">
+        <h2 class="section-title">Professional <span>Services Offered</span></h2>
+        
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcR3vHS_Uwj4WcphyQglwMvxFc-n8mXbW94iCKusrpYNZHiXG0keISeh6MzJCDnv3Kk0srZviXAejZhw4KQ" class="service-img" alt="Backyard custom wood deck assembly under construction">
+                <div class="service-info">
+                    <h3>Custom Deck Work</h3>
+                    <p>From total floorboard replacement and joist structural reinforcements to brand-new, beautiful custom builds ready for outdoor hosting.</p>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQgeEQGQN76FjTuerjGMFEy9lzYJhqX9xlbVOIr7QiPluD6-uIC_4GuiqNnKkbC6er2iBUVrzDy_CuoS0E" class="service-img" alt="Professional craftsman leveling a porch support column structure">
+                <div class="service-info">
+                    <h3>Porch Rebuilding & Repair</h3>
+                    <p>Specialized structural restoration for sagging designs, column replacements, heavy-duty stair rebuilds, and complete screen integration.</p>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <!-- Using hero asset variation for generic high-quality trade showcase -->
+                <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSHHi67Rxm01XGJq76m_8deeN_PBHjnMrX6dayeJ-BAl_arYxnPRU8LJkv-tt5rIo-dySUSOwW2XM1OXrI" class="service-img" alt="Variety of woodworking and home repair tools neatly arranged on a wood surface">
+                <div class="service-info">
+                    <h3>General Home Repairs</h3>
+                    <p>Prompt assistance with structural door alignments, dry rot mitigation, drywall patch installations, light fixtures, and hardware updates.</p>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-info" style="display:flex; flex-direction:column; justify-content:center; text-align:center; min-height: 220px; background: var(--primary); color: var(--white);">
+                    <h3 style="color: var(--accent); font-size: 1.75rem; margin-bottom: 0.5rem;">Finish Carpentry</h3>
+                    <p style="color: #cbd5e1;">Crown molding installation, structural baseboards, door trims, and custom shelving units built precisely to your layout specifications.</p>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-info" style="display:flex; flex-direction:column; justify-content:center; text-align:center; min-height: 220px; background: var(--dark); color: var(--white);">
+                    <h3 style="color: var(--accent); font-size: 1.75rem; margin-bottom: 0.5rem;">Exterior Refurbishing</h3>
+                    <p style="color: #cbd5e1;">Power washing treatments, exterior wood rot replacement, modern fascia board corrections, and protective weatherproofing coatings.</p>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-info" style="display:flex; flex-direction:column; justify-content:center; text-align:center; min-height: 220px; border: 2px dashed var(--accent);">
+                    <h3 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Have a Unique Project?</h3>
+                    <p style="color: var(--slate-gray); margin-bottom: 1rem;">Jose handles a vast scope of custom residential tasks tailored to your property needs.</p>
+                    <a href="#contact" style="color: var(--accent); font-weight:700; text-decoration:none;">Inquire Below &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geographic Location Service Banner -->
+    <section id="service-areas" class="location-banner">
+        <div class="location-container">
+            <h2>Serving Rock Hill, SC & Surrounding Communities</h2>
+            <p>Providing on-time arrival, fully transparent pricing, and structural field expertise throughout the local area:</p>
+            <div class="location-tags">
+                <div class="tag">Rock Hill, SC</div>
+                <div class="tag">Fort Mill, SC</div>
+                <div class="tag">Tega Cay, SC</div>
+                <div class="tag">York, SC</div>
+                <div class="tag">Clover, SC</div>
+                <div class="tag">Lancaster, SC</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fully Formatted Professional Contact Form Container -->
+    <section id="contact" class="container">
+        <div class="contact-wrap">
+            <div class="contact-header">
+                <h2>Let's Discuss Your Project</h2>
+                <p>Fill out the fields below, and Jose will get back to you promptly to discuss a free project estimate.</p>
+            </div>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(803) 555-0100">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Your Location</label>
+                        <select id="location" name="location">
+                            <option value="rock-hill">Rock Hill, SC</option>
+                            <option value="fort-mill">Fort Mill, SC</option>
+                            <option value="tega-cay">Tega Cay, SC</option>
+                            <option value="york-clover">York / Clover Area</option>
+                            <option value="other">Other Surrounding Area</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Primary Service Needed</label>
+                    <select id="service" name="service">
+                        <option value="deck">Custom Deck Construction & Repair</option>
+                        <option value="porch">Porch Rebuilding & Structural Repair</option>
+                        <option value="carpentry">Finish Carpentry (Trim, Molding, Shelving)</option>
+                        <option value="repairs">General Home Maintenance & Fixes</option>
+                        <option value="exterior">Exterior Washing & Weatherproofing</option>
+                        <option value="multi">Multiple Projects / Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group full">
+                    <label for="message">Project Scope & Details</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Please share details regarding what needs repair or construction, approximate measurements, or special requests..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>&copy; 2026 <strong>Jose Baldallamos Handyman Services</strong>. Based out of Rock Hill, SC. Proudly serving York County and surrounding areas.</p>
+    </footer>
+
+</body>
+</html>
